@@ -1,0 +1,59 @@
+{
+	"prefix": "-",
+	"serverName": "The Secret Society",
+	"serverLogo": "https://i.imgur.com/ybT7Zpe.png",
+	"embedColor": "#a38164",
+
+	"IDs": {
+		"clientId": "951765994290941962",
+		"guildId": "951545234985193473",
+		"creatorId": "427073318320078858",
+		"ignoreRoleId": "951545234985193474",
+		"welcomeChannelId": "951545235681464371",
+		"musicChannelId": "951545235886997549",
+		"memberRoleId": "951545234985193475"
+	},
+
+	"presenceUpdate": {
+		"alias": {
+			"Among Us": "👻┃Among Us",
+			"Apex Legends": "🦸┃Apex Legends",
+			"Counter-Strike: Global Offensive": "💣┃CS:GO",
+			"Call of Duty®: Modern Warfare®": "🔫┃Call of Duty",
+			"Grand Theft Auto V": "👮┃GTA V",
+			"Rainbow Six Siege": "🌈┃Rainbow Six Siege",
+			"Tom Clancy's Rainbow Six Siege": "🌈┃Rainbow Six Siege",
+			"VALORANT": "🧝┃Valorant",
+			"Spotify": "🎵┃Spotify"
+		},
+		"createRoles": false,
+		"ignoreUnverifiedActivities": false
+	},
+
+	"music": {
+		"maxVol": 100,
+		"loopMessage": false,
+		"autoShuffle": true,
+		"imgURL": "https://i.imgur.com/P7bPbjJ.png",
+		"discordPlaylist": "https://music.youtube.com/playlist?list=PL_B-RcGYprJ5NtqoFgJyDIqEcg4yuO8Ld&feature=share",
+		"editPlaylist": "https://music.youtube.com/playlist?list=PL_B-RcGYprJ5NtqoFgJyDIqEcg4yuO8Ld&jct=qYv0g6nxbIb8CoO0cRFUTC49lJWZGQ",
+		"DJ": {
+			"enabled": false,
+			"roleName": "🎛️┃DJ",
+			"commands": [
+				"clear",
+				"loop",
+				"next",
+				"pause",
+				"previous",
+				"remove",
+				"resume",
+				"seek",
+				"shuffle",
+				"skipto",
+				"stop",
+				"volume"
+			]
+		}
+	}
+}
