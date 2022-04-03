@@ -19,9 +19,21 @@ module.exports = async (bot) => {
 		);
 
 	// Bot Status
-	bot.user.setActivity("you play games 👀", {
-		type: "WATCHING",
-	});
+	let botActivity = [
+			`you play games 👀`,
+			`some nice music 🎶`,
+			`your trash comms 🗑️`,
+		],
+		activityType = [`WATCHING`, `PLAYING`, `LISTENING`],
+		i = 0,
+		j = 0;
+	setInterval(
+		() =>
+			bot.user.setActivity(`${botActivity[i++ % botActivity.length]}`, {
+				type: `${activityType[j++ % activityType.length]}`,
+			}),
+		120000
+	);
 
 	// Music Dashboard
 	const musicembed = new MessageEmbed()
