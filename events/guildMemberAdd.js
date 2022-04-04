@@ -1,6 +1,7 @@
 const Canvas = require("canvas");
 const discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+const chalk = require("chalk");
 
 const background = "./src/images/background.png";
 
@@ -85,6 +86,10 @@ module.exports = async (bot, member) => {
 	//Member Role on join
 	//const memberRole = member.guild.roles.cache.get(bot.config.IDs.memberRoleId);
 	//member.roles.add(memberRole, "Joined Server");
+
+	console.log(
+		chalk`\n{cyanBright [INFO] ${member.user.username} has joined the Server!}`
+	);
 
 	bot.channels.cache.get(bot.config.IDs.welcomeChannelId).send({
 		content: `Welcome to ${serverName} <@${member.id}>!`,

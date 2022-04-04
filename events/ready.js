@@ -5,17 +5,17 @@ module.exports = async (bot) => {
 	console.log(`~~~~~ THE SECRET SOCIETY BOT ONLINE ~~~~~`);
 	console.log("\n--------------------------------\n");
 	console.log(
-		chalk`Current Bot Settings::\n* The bot will {redBright.bold ${
+		chalk`Current Bot Settings::\n* The bot will {redBright ${
 			!bot.config.presenceUpdate.createRoles ? "NOT" : ""
 		}} create Game-Roles, if they don't exist already.`
 	);
 	if (bot.config.presenceUpdate.ignoreUnverifiedActivities)
 		console.log(
-			chalk`* The bot will ignore all activities that are not verified.\n`
+			chalk`* The bot will {greenBright ignore all activities} that are not verified.\n`
 		);
 	else
 		console.log(
-			chalk`* The bot will process all activities, regardless of wether they're verified.\n`
+			chalk`* The bot will process {redBright all activities}, regardless of wether they're verified.\n`
 		);
 
 	// Bot Status

@@ -12,11 +12,13 @@ async function pickRole(guild, name, ass = true) {
 		// create role
 		if (!bot.config.presenceUpdate.createRoles) {
 			console.log(
-				chalk`      {yellow / role} "${desiredRolename}" {grey (Moderator must create this role first - security setting)}\n`
+				chalk`      {yellow x role} {grey "${desiredRolename}" (Create Role Disabled - Security Setting)}\n`
 			);
 			return null;
 		}
-		console.log(chalk.grey(`   -> creating role "${desiredRolename}"\n`));
+		console.log(
+			chalk`      {greenBright + creating role} {grey "${desiredRolename}"}\n`
+		);
 		role = await guild.roles.create({
 			name: desiredRolename,
 			color: "DEFAULT",
@@ -35,15 +37,19 @@ async function pickRole(guild, name, ass = true) {
 
 module.exports = async (bot, prev, now) => {
 	console.log(
-		chalk`{blueBright ${
+		chalk`\n{blueBright [ACTY] ${
 			now.user.username + "#" + now.user.discriminator
 		}} is now playing {yellow ${now.activities.map(
 			(activity) => activity.name
-		)}} {grey (${now.activities.length})} {grey [${now.member.guild.name}]} `
+		)}} {grey (${
+			now.activities.length
+		})} {grey [${new Date().toLocaleString()}]}`
 	);
 
 	if (now.member.roles.cache.has(bot.config.presenceUpdate.ignoreRoleId)) {
-		console.log(chalk.red("Member is in Ignore List -> CANT ASSIGN ROLE\n"));
+		console.log(
+			chalk`     {yellow x role} {grey "${desiredRolename}" (Member Ignored - Security Setting)}\n`
+		);
 		return;
 	}
 
