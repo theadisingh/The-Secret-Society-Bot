@@ -12,12 +12,12 @@ async function pickRole(guild, name, ass = true) {
 		// create role
 		if (!bot.config.presenceUpdate.createRoles) {
 			console.log(
-				chalk`      {yellow x role} {grey "${desiredRolename}" (Create Role Disabled - Security Setting)}`
+				chalk`     {yellow x role} {grey "${desiredRolename}" (Create Role Disabled - Security Setting)}`
 			);
 			return null;
 		}
 		console.log(
-			chalk`      {greenBright + creating role} {grey "${desiredRolename}"}`
+			chalk`     {greenBright + creating role} {grey "${desiredRolename}"}`
 		);
 		role = await guild.roles.create({
 			name: desiredRolename,
