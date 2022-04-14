@@ -35,7 +35,7 @@ module.exports = async (bot, interaction) => {
 			if (interaction.values[0] === "adityaplaylist")
 				selplaylist = bot.config.music.adityaPlaylist;
 			else if (interaction.values[0] === "sushantplaylist")
-				selplaylist = bot.config.music.adityaPlaylist;
+				selplaylist = bot.config.music.sushantPlaylist;
 
 			const res = await player.search(selplaylist, {
 				requestedBy: interaction.member,
