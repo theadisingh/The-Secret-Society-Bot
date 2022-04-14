@@ -102,16 +102,21 @@ module.exports = async (bot) => {
 
 	//Playlist Button
 	const row3 = new MessageActionRow().addComponents(
-		new MessageButton()
-			.setCustomId("playlist")
-			.setLabel("Add Playlist Songs to Queue")
-			.setStyle("SECONDARY")
-			.setEmoji("🅿️"),
-		new MessageButton()
-			.setLabel("Edit Saved Playlist on YouTube")
-			.setURL(bot.config.music.editPlaylist)
-			.setStyle("LINK")
-			.setEmoji("🛃")
+		new MessageSelectMenu()
+			.setCustomId("PlaylistSelect")
+			.setPlaceholder("Select Playlist")
+			.addOptions([
+				{
+					label: `Aditya's Playlist`,
+					description: `Playlist by Aditya Singh`,
+					value: `adityaplaylist`,
+				},
+				{
+					label: `Sushant's Playlist`,
+					description: `Playlist by Sushant Johri`,
+					value: `sushantplaylist`,
+				},
+			])
 	);
 
 	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);

@@ -35,8 +35,8 @@
 		"loopMessage": false,
 		"autoShuffle": true,
 		"imgURL": "https://i.imgur.com/WPwVlOe.png",
-		"discordPlaylist": "https://music.youtube.com/playlist?list=PL_B-RcGYprJ5NtqoFgJyDIqEcg4yuO8Ld&feature=share",
-		"editPlaylist": "https://music.youtube.com/playlist?list=PL_B-RcGYprJ5NtqoFgJyDIqEcg4yuO8Ld&jct=qYv0g6nxbIb8CoO0cRFUTC49lJWZGQ",
+		"adityaPlaylist": "https://music.youtube.com/playlist?list=PL_B-RcGYprJ5NtqoFgJyDIqEcg4yuO8Ld&feature=share",
+		"sushantPlaylist": "",
 		"DJ": {
 			"enabled": false,
 			"roleName": "🎛️┃DJ",

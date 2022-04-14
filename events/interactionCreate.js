@@ -2,10 +2,10 @@ const { QueryType } = require("discord-player");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = async (bot, interaction) => {
-	if (interaction.isButton()) {
-		const discordPlaylist = bot.config.music.discordPlaylist;
-		const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
+	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
 
+	if (interaction.isSelectMenu()) {
+		// Check if user in voice channel
 		if (!interaction.member.voice.channel)
 			return interaction
 				.reply(
@@ -29,8 +29,15 @@ module.exports = async (bot, interaction) => {
 				})
 				.catch();
 
-		if (interaction.customId === "playlist") {
-			const res = await player.search(discordPlaylist, {
+		if (interaction.customId === "PlaylistSelect") {
+			let selplaylist = "";
+
+			if (interaction.values[0] === "adityaplaylist")
+				selplaylist = bot.config.music.adityaPlaylist;
+			else if (interaction.values[0] === "sushantplaylist")
+				selplaylist = bot.config.music.adityaPlaylist;
+
+			const res = await player.search(selplaylist, {
 				requestedBy: interaction.member,
 				searchEngine: QueryType.AUTO,
 			});
@@ -124,6 +131,33 @@ module.exports = async (bot, interaction) => {
 				});
 			}
 		}
+	}
+
+	if (interaction.isButton()) {
+		// Check if user in voice channel
+		if (!interaction.member.voice.channel)
+			return interaction
+				.reply(
+					`You're not in a voice channel ${interaction.user}... try again ? ❌`
+				)
+				.then(() => {
+					setTimeout(() => interaction.deleteReply(), 2500);
+				})
+				.catch();
+		// Check if command user in same voice channel
+		if (
+			interaction.guild.me.voice.channel &&
+			interaction.member.voice.channel !== interaction.guild.me.voice.channel
+		)
+			return interaction
+				.reply(
+					`You are not in the same voice channel ${interaction.user}... try again ? ❌`
+				)
+				.then(() => {
+					setTimeout(() => interaction.deleteReply(), 2500);
+				})
+				.catch();
+
 		if (interaction.customId === "clearPlaylist") {
 			const command = "clear";
 			const cmd =
