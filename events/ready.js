@@ -1,5 +1,10 @@
 const chalk = require("chalk");
-const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
+const {
+	MessageEmbed,
+	MessageActionRow,
+	MessageButton,
+	MessageSelectMenu,
+} = require("discord.js");
 
 module.exports = async (bot) => {
 	console.log(`~~~~~ THE SECRET SOCIETY BOT ONLINE ~~~~~`);
