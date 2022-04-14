@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const prettyMilliseconds = require("pretty-ms");
 
 module.exports = {
 	name: "info",
@@ -14,12 +15,16 @@ module.exports = {
 			.setThumbnail(bot.config.serverLogo)
 			.addFields(
 				{
-					name: "Games Registered",
-					value: gamenames,
+					name: "Bot Version",
+					value: `\`${bot.package.version}\``,
 				},
 				{
-					name: "Bot Version",
-					value: `${bot.package.version}`,
+					name: "Bot Uptime",
+					value: `\`${prettyMilliseconds(bot.uptime)}\``,
+				},
+				{
+					name: "Activities Registered",
+					value: `${gamenames}`,
 				},
 				{
 					name: "Created By",
