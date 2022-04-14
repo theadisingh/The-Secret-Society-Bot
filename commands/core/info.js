@@ -1,4 +1,5 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageButton } = require("discord.js");
+const prettyMilliseconds = require("pretty-ms");
 
 module.exports = {
 	name: "info",
@@ -9,17 +10,21 @@ module.exports = {
 		var gamenames = JSON.stringify(bot.config.presenceUpdate.alias, null, 4);
 		const embed = new MessageEmbed()
 			.setColor(bot.config.embedColor)
-			.setTitle("Bot Info")
+			.setTitle("Bot Information")
 			.setDescription(`${bot.package.description}`)
 			.setThumbnail(bot.config.serverLogo)
 			.addFields(
 				{
-					name: "Games Registered",
-					value: gamenames,
+					name: "Bot Version",
+					value: `\`${bot.package.version}\``,
 				},
 				{
-					name: "Bot Version",
-					value: `${bot.package.version}`,
+					name: "Bot Uptime",
+					value: `\`${prettyMilliseconds(bot.uptime)}\``,
+				},
+				{
+					name: "Activities Registered",
+					value: `${gamenames}`,
 				},
 				{
 					name: "Created By",
