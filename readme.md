@@ -1,6 +1,6 @@
 # The Secret Society Bot
 
-![The Secret Society Bot Logo](https://i.imgur.com/P7bPbjJ.png)
+![The Secret Society Bot Logo](https://i.imgur.com/4K4j0OX.jpg)
 This is the bot we use for our very own server The Secret Society. It can dynamically assign roles to users when they're playing a certain game. Welcome new users with a personalised banner frame in the welcome channel and assign them the member role so they can interact in the server. It can also play music in voice channel from various souces like YouTube, Spotify, Soundcloud etc and has a seperate music channel with a dashboard to control music.
 
 ## Requirements
