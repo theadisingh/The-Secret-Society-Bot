@@ -36,10 +36,10 @@
 		"maxVol": 100,
 		"loopMessage": false,
 		"autoShuffle": true,
+		"spotifyBridge": true,
 		"imgURL": "https://i.imgur.com/WPwVlOe.png",
 		"adityaPlaylist": "https://music.youtube.com/playlist?list=PL_B-RcGYprJ5NtqoFgJyDIqEcg4yuO8Ld&feature=share",
 		"sushantPlaylist": "https://music.youtube.com/playlist?list=PL6tMxNF_Dd7A3XHqjq5QZ8-knO62zf1UU&feature=share",
-		"spotifyBridge": true,
 		"DJ": {
 			"enabled": false,
 			"roleName": "🎛️┃DJ",
