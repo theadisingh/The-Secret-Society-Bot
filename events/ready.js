@@ -1,9 +1,10 @@
 const chalk = require("chalk");
 const {
-	MessageEmbed,
-	MessageActionRow,
-	MessageButton,
-	MessageSelectMenu,
+	EmbedBuilder,
+	ActionRowBuilder,
+	ButtonBuilder,
+	SelectMenuBuilder,
+	ButtonStyle,
 } = require("discord.js");
 
 module.exports = async (bot) => {
@@ -41,7 +42,7 @@ module.exports = async (bot) => {
 	);
 
 	// Music Dashboard
-	const musicembed = new MessageEmbed()
+	const musicembed = new EmbedBuilder()
 		.setColor(bot.config.embedColor)
 		.setTitle("Music Dashboard")
 		.setDescription(
@@ -50,64 +51,64 @@ module.exports = async (bot) => {
 		.setImage(bot.config.music.imgURL);
 
 	//Music Control Buttons
-	const row1 = new MessageActionRow().addComponents(
-		new MessageButton()
+	const row1 = new ActionRowBuilder().addComponents(
+		new ButtonBuilder()
 			.setCustomId("clearPlaylist")
 			.setLabel(`Clear`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("⏏️"),
-		new MessageButton()
+		new ButtonBuilder()
 			.setCustomId("prevTrack")
 			.setLabel(`Prev`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("⏪"),
-		new MessageButton()
+		new ButtonBuilder()
 			.setCustomId("playpauseTrack")
 			.setLabel(`Play/Pause`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("⏯️"),
-		new MessageButton()
+		new ButtonBuilder()
 			.setCustomId("nextTrack")
 			.setLabel(`Next`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("⏩"),
-		new MessageButton()
+		new ButtonBuilder()
 			.setCustomId("stopTrack")
 			.setLabel(`Stop`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("⏹️")
 	);
-	const row2 = new MessageActionRow().addComponents(
-		new MessageButton()
+	const row2 = new ActionRowBuilder().addComponents(
+		new ButtonBuilder()
 			.setCustomId("shufflePlaylist")
 			.setLabel(`Shuffle`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("🔀"),
-		new MessageButton()
+		new ButtonBuilder()
 			.setCustomId("volDown")
 			.setLabel(`Vol Dn`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("🔽"),
-		new MessageButton()
+		new ButtonBuilder()
 			.setCustomId("loopPlaylist")
 			.setLabel(`Loop`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("🔁"),
-		new MessageButton()
+		new ButtonBuilder()
 			.setCustomId("volUp")
 			.setLabel(`Vol Up`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("🔼"),
-		new MessageButton()
+		new ButtonBuilder()
 			.setCustomId("saveTrack")
 			.setLabel(`Save`)
-			.setStyle("SECONDARY")
+			.setStyle(ButtonStyle.Secondary)
 			.setEmoji("⬇️")
 	);
 
 	//Playlist Button
-	const row3 = new MessageActionRow().addComponents(
-		new MessageSelectMenu()
+	const row3 = new ActionRowBuilder().addComponents(
+		new SelectMenuBuilder()
 			.setCustomId("PlaylistSelect")
 			.setPlaceholder("Select Playlist")
 			.addOptions([

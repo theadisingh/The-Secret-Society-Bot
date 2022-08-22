@@ -1,8 +1,8 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 player.on("error", async (queue, error) => {
 	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
-	const restartembed = new MessageEmbed()
+	const restartembed = new EmbedBuilder()
 		.setColor(bot.config.embedColor)
 		.setTitle("Oops! The Bot ran into some error!")
 		.setDescription(`'🔃---------- RESTARTING BOT ----------🔃`)
@@ -26,7 +26,7 @@ player.on("error", async (queue, error) => {
 
 player.on("connectionError", async (queue, error) => {
 	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
-	const restartembed = new MessageEmbed()
+	const restartembed = new EmbedBuilder()
 		.setColor(bot.config.embedColor)
 		.setTitle("Oops! The Bot ran into some error!")
 		.setDescription(`'🔃---------- RESTARTING BOT ----------🔃`)
@@ -65,7 +65,7 @@ player.on("trackStart", async (queue, track) => {
 		timestamp.progress == "Infinity" ? "infinity (live)" : track.duration;
 	const songThumbnail = track.thumbnail + "?width=960&height=540";
 
-	const trackembed = new MessageEmbed()
+	const trackembed = new EmbedBuilder()
 		.setColor(bot.config.embedColor)
 		.setTitle(`<a:dashboard_equalizer:953273798776475649> ${track.title}`)
 		.setDescription(
@@ -103,7 +103,7 @@ player.on("trackAdd", async (queue, track) => {
 
 	musicChannel.messages.fetch().then((results) => {
 		var lastMessage = results.last();
-		const trackembed = new MessageEmbed(lastMessage.embeds[0]).setFooter({
+		const trackembed = new EmbedBuilder(lastMessage.embeds[0]).setFooter({
 			text: `${songs} Songs in Queue | Loop: ${
 				methods[queue.repeatMode]
 			} | DJ Mode: ${
@@ -120,7 +120,7 @@ player.on("trackAdd", async (queue, track) => {
 player.on("botDisconnect", async (queue) => {
 	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
 
-	const trackembed = new MessageEmbed()
+	const trackembed = new EmbedBuilder()
 		.setColor(bot.config.embedColor)
 		.setTitle(`Music Dashboard`)
 		.setDescription(
@@ -140,7 +140,7 @@ player.on("botDisconnect", async (queue) => {
 player.on("channelEmpty", async (queue) => {
 	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
 
-	const trackembed = new MessageEmbed()
+	const trackembed = new EmbedBuilder()
 		.setColor(bot.config.embedColor)
 		.setTitle(`Music Dashboard`)
 		.setDescription(
@@ -160,7 +160,7 @@ player.on("channelEmpty", async (queue) => {
 player.on("queueEnd", async (queue) => {
 	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
 
-	const trackembed = new MessageEmbed()
+	const trackembed = new EmbedBuilder()
 		.setColor(bot.config.embedColor)
 		.setTitle(`Music Dashboard`)
 		.setDescription(

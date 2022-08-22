@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const prettyMilliseconds = require("pretty-ms");
 
 module.exports = {
@@ -6,9 +6,9 @@ module.exports = {
 	aliases: ["i"],
 	utilisation: "{prefix}info",
 
-	async execute(bot, message, args) {
+	async execute(bot, message) {
 		var gamenames = JSON.stringify(bot.config.presenceUpdate.alias, null, 4);
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setColor(bot.config.embedColor)
 			.setTitle("Bot Info")
 			.setDescription(`${bot.package.description}`)

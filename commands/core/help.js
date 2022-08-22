@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "help",
@@ -6,7 +6,7 @@ module.exports = {
 	showHelp: true,
 	utilisation: "{prefix}help",
 
-	async execute(bot, message, args) {
+	async execute(bot, message) {
 		const commands = bot.commands.filter((x) => x.showHelp !== false);
 		const prefix = bot.config.prefix;
 		const listitems = commands
@@ -17,7 +17,7 @@ module.exports = {
 					}`
 			)
 			.join(" | ");
-		const embed = new MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setColor(bot.config.embedColor)
 			.setTitle("Help")
 			.addFields(

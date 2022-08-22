@@ -46,8 +46,9 @@ module.exports = async (bot, message) => {
 				.catch();
 
 		if (
-			message.guild.me.voice.channel &&
-			message.member.voice.channel.id !== message.guild.me.voice.channel.id
+			message.guild.members.me.voice.channel &&
+			message.member.voice.channel.id !==
+				message.guild.members.me.voice.channel.id
 		)
 			return message.channel
 				.send(

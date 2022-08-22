@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "stop",
@@ -20,7 +20,7 @@ module.exports = {
 
 		queue.destroy();
 
-		const trackembed = new MessageEmbed()
+		const trackembed = new EmbedBuilder()
 			.setColor(bot.config.embedColor)
 			.setTitle(`Music Dashboard`)
 			.setDescription(

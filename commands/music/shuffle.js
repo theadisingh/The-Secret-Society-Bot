@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "shuffle",
@@ -39,7 +39,7 @@ module.exports = {
 
 		musicChannel.messages.fetch().then((results) => {
 			var lastMessage = results.last();
-			const trackembed = new MessageEmbed(lastMessage.embeds[0]);
+			const trackembed = new EmbedBuilder(lastMessage.embeds[0]);
 			lastMessage.edit({
 				content: `**Queue List:**\n${tracks.slice(0, 5).join("\n")}`,
 				embeds: [trackembed],

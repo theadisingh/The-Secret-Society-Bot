@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "restartbot",
@@ -6,15 +6,15 @@ module.exports = {
 	showHelp: false,
 	utilisation: "{prefix}restartbot",
 
-	async execute(bot, message, args) {
-		const adminembed = new MessageEmbed()
+	async execute(bot, message) {
+		const adminembed = new EmbedBuilder()
 			.setColor(bot.config.embedColor)
 			.setTitle("Missing Privileges")
 			.setDescription(
 				`Only <@${bot.config.IDs.creatorId}> can run this command!`
 			);
 
-		const restartembed = new MessageEmbed()
+		const restartembed = new EmbedBuilder()
 			.setColor(bot.config.embedColor)
 			.setTitle("Salvo Grotto")
 			.setDescription(`---------- RESTARTING BOT ----------`)

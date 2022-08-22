@@ -1,10 +1,10 @@
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = async (bot, oldState, newState) => {
 	const queue = player.getQueue(oldState.guild.id);
 	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
 
-	const trackembed = new MessageEmbed()
+	const trackembed = new EmbedBuilder()
 		.setColor(bot.config.embedColor)
 		.setTitle(`Music Dashboard`)
 		.setDescription(
@@ -12,9 +12,9 @@ module.exports = async (bot, oldState, newState) => {
 		)
 		.setImage(bot.config.music.imgURL);
 
-	if (oldState.guild.me.voice.channel) {
+	if (oldState.guild.members.me.voice.channel) {
 		if (newState.channelId === null) {
-			if (oldState.channelId === oldState.guild.me.voice.channel.id) {
+			if (oldState.channelId === oldState.guild.members.me.voice.channel.id) {
 				if (!(oldState.channel.members.size - 1)) {
 					setTimeout(() => {
 						if (!(oldState.channel.members.size - 1)) {
@@ -35,7 +35,7 @@ module.exports = async (bot, oldState, newState) => {
 								})
 								.catch();
 
-							oldState.guild.me.voice.disconnect();
+							oldState.guild.members.me.voice.disconnect();
 						}
 					}, 60000); // <== Change Here for leave timeout (in milliseconds)
 				}

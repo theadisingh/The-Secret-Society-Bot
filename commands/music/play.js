@@ -29,7 +29,8 @@ module.exports = {
 				.catch();
 
 		const queue = await player.createQueue(message.guild, {
-			//initialVolume: 25,
+			spotifyBridge: bot.config.music.spotifyBridge,
+			initialVolume: bot.config.music.initialVol,
 			leaveOnEnd: false,
 			leaveOnStop: false,
 			metadata: message.channel,

@@ -1,5 +1,5 @@
 const { QueueRepeatMode } = require("discord-player");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
 	name: "loop",
@@ -38,7 +38,7 @@ module.exports = {
 			const songs = queue.tracks.length;
 			musicChannel.messages.fetch().then((results) => {
 				var lastMessage = results.last();
-				const trackembed = new MessageEmbed(lastMessage.embeds[0]).setFooter({
+				const trackembed = new EmbedBuilder(lastMessage.embeds[0]).setFooter({
 					text: `${songs} Songs in Queue | Loop: ${
 						methods[queue.repeatMode]
 					} | DJ Mode: ${
@@ -81,7 +81,7 @@ module.exports = {
 			const songs = queue.tracks.length;
 			musicChannel.messages.fetch().then((results) => {
 				var lastMessage = results.last();
-				const trackembed = new MessageEmbed(lastMessage.embeds[0]).setFooter({
+				const trackembed = new EmbedBuilder(lastMessage.embeds[0]).setFooter({
 					text: `${songs} Songs in Queue | Loop: ${
 						methods[queue.repeatMode]
 					} | DJ Mode: ${

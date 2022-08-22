@@ -1,5 +1,5 @@
 const { QueryType } = require("discord-player");
-const { MessageEmbed } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = async (bot, interaction) => {
 	const musicChannel = bot.channels.cache.get(bot.config.IDs.musicChannelId);
@@ -17,8 +17,9 @@ module.exports = async (bot, interaction) => {
 				.catch();
 		// Check if command user in same voice channel
 		if (
-			interaction.guild.me.voice.channel &&
-			interaction.member.voice.channel !== interaction.guild.me.voice.channel
+			interaction.guild.members.me.voice.channel &&
+			interaction.member.voice.channel !==
+				interaction.guild.members.me.voice.channel
 		)
 			return interaction
 				.reply(
@@ -61,8 +62,9 @@ module.exports = async (bot, interaction) => {
 					.catch();
 			// Check if command user in same voice channel
 			if (
-				interaction.guild.me.voice.channel &&
-				interaction.member.voice.channel !== interaction.guild.me.voice.channel
+				interaction.guild.members.me.voice.channel &&
+				interaction.member.voice.channel !==
+					interaction.guild.members.me.voice.channel
 			)
 				return interaction
 					.reply(
@@ -117,7 +119,7 @@ module.exports = async (bot, interaction) => {
 				const methods = ["Disabled", "Track", "Queue"];
 				musicChannel.messages.fetch().then((results) => {
 					var lastMessage = results.last();
-					const trackembed = new MessageEmbed(lastMessage.embeds[0]).setFooter({
+					const trackembed = new EmbedBuilder(lastMessage.embeds[0]).setFooter({
 						text: `${songs} Songs in Queue | Loop: ${
 							methods[queue.repeatMode]
 						} | DJ Mode: ${
@@ -146,8 +148,9 @@ module.exports = async (bot, interaction) => {
 				.catch();
 		// Check if command user in same voice channel
 		if (
-			interaction.guild.me.voice.channel &&
-			interaction.member.voice.channel !== interaction.guild.me.voice.channel
+			interaction.guild.members.me.voice.channel &&
+			interaction.member.voice.channel !==
+				interaction.guild.members.me.voice.channel
 		)
 			return interaction
 				.reply(
@@ -365,7 +368,7 @@ module.exports = async (bot, interaction) => {
 					})
 					.catch();
 
-			const songembed = new MessageEmbed()
+			const songembed = new EmbedBuilder()
 				.setColor("RED")
 				.setTitle(`${queue.current.title}`)
 				.setDescription(

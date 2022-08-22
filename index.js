@@ -1,21 +1,24 @@
 // Imports
-const discord = require("discord.js");
+//const discord = require("discord.js");
+const { Client, GatewayIntentBits } = require("discord.js");
 const chalk = require("chalk");
-const { REST } = require("@discordjs/rest");
 const { Player } = require("discord-player");
 require("dotenv").config();
 
 // Bot Intents
-global.bot = new discord.Client({
+global.bot = new Client({
 	intents: [
-		discord.Intents.FLAGS.GUILDS,
-		discord.Intents.FLAGS.GUILD_PRESENCES,
-		discord.Intents.FLAGS.GUILD_MESSAGES,
-		discord.Intents.FLAGS.GUILD_MEMBERS,
-		discord.Intents.FLAGS.GUILD_VOICE_STATES,
-		discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMembers,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.GuildVoiceStates,
+		GatewayIntentBits.GuildPresences,
+		GatewayIntentBits.GuildIntegrations,
+		GatewayIntentBits.GuildMessageReactions,
+		GatewayIntentBits.MessageContent,
 	],
 	partials: ["MESSAGE", "CHANNEL", "REACTION"],
+	disableMentions: "everyone",
 });
 
 // Music Player
@@ -32,11 +35,6 @@ bot.config = require("./config.json");
 bot.package = require("./package.json");
 require("./handlers/loader");
 require("./handlers/event");
-
-// Register Slash Commands
-const rest = new REST({
-	version: "9",
-}).setToken(process.env.TOKEN);
 
 bot.login(process.env.TOKEN).catch((reason) => {
 	console.log(chalk`{redBright [LOGIN-ERROR]} Code: {grey ${reason.code}}`);
